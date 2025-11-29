@@ -505,6 +505,134 @@
           }
         }
       ]
+    },
+    {
+      "name": "Técnico",
+      "item": [
+        {
+          "name": "Técnicos Disponibles",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tecnico/disponibles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tecnico",
+                "disponibles"
+              ]
+            },
+            "description": "Técnicos disponibles para servicio"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints específicos de Técnico"
+    },
+    {
+      "name": "Servicio",
+      "item": [
+        {
+          "name": "Solicitar Servicio",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/servicio/solicitar",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servicio",
+                "solicitar"
+              ]
+            },
+            "description": "Solicitar reparación",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clienteId\": \"{{clienteId}}\",\n  \"tipoServicio\": \"plomería\",\n  \"descripcion\": \"Fuga de agua\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Mis Reparaciones",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/servicio/cliente/{{clienteId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servicio",
+                "cliente",
+                "{{clienteId}}"
+              ]
+            },
+            "description": "Historial de servicios"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints específicos de Servicio"
+    },
+    {
+      "name": "Garantía",
+      "item": [
+        {
+          "name": "Estado de Garantía",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/garantia/servicio/{{servicioId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "garantia",
+                "servicio",
+                "{{servicioId}}"
+              ]
+            },
+            "description": "Estado de garantía del servicio"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints específicos de Garantía"
     }
   ],
   "variable": [
